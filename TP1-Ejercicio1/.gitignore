@@ -7,3 +7,5 @@
 *.vcd
 __pycache__/
 *.pyc
+!firmware.elf
+!firmware.hex
