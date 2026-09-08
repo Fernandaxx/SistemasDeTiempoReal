@@ -19,12 +19,12 @@ int main(void){
 		if (!parpadeo){
 			if (!(PIND & (1 << PORTD2)) || !(PIND & (1 << PORTD3))){
 				parpadeo = 1;
+				PORTB &= ~(1 << PORTB1);
 			}
 		}
 		else{
-			PORTB ^= (1 << PORTB1);
 			_delay_ms(250);
-			PORTB ^= (1 << PORTB0);
+			PORTB ^= (1 << PORTB0) | (1 << PORTB1);
 		}
 	}
 	return 0;
