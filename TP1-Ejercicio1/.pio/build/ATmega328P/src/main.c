@@ -1,4 +1,4 @@
-#define F_CPU 16000000UL 
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdbool.h>
@@ -30,12 +30,5 @@ int main(void){
 	return 0;
 }
 
-// Estado 1: PB0 encendido, PB1 apagado (250 ms)
-/* PORTB = (PORTB & ~(1 << PORTB1)) | (1 << PORTB0);
-_delay_ms(250);
 
-// Estado 2: PB0 apagado, PB1 encendido (250 ms)
-PORTB = (PORTB & ~(1 << PORTB0)) | (1 << PORTB1);
-_delay_ms(250);
- */
 
