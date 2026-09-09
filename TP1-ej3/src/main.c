@@ -11,7 +11,7 @@ const uint8_t tabla_7seg[16] = {
 
 void mostrar_digito(uint8_t patron, uint8_t pin_LE)
 {
-    PORTB = patron;             //fija el patrón en el bus de 8 bits (usamos PORTB completo como bus de meme)
+    PORTB = patron;             //fija el patrón en el bus
     PORTC |= (1 << pin_LE);     // sube LE -> 74LS373 en modo "transparente", copia el bus
     _delay_us(5);                // seteo tiempo para que el latch termine de copiar
     PORTC &= ~(1 << pin_LE);    // baja LE -> 74LS373 "retiene" (memoriza) ese valor
@@ -25,7 +25,7 @@ uint16_t ADC_leer(void)
     return ADC;                          // ADCH:ADCL combinados, 10 bits
 }
 void setear_regs(void){
-    DDRB = 0xFF;                          // PORTB entero como salida (bus de memoria)
+    DDRB = 0xFF;                          // PORTB entero como salida (bus de datos)
     DDRC |= (1 << PC1) | (1 << PC2);      // PC1, PC2 como salida (LE de U4 y U3)
     DDRC &= ~(1 << PC0);                  // PC0 seteado como entrada (para el ADC)
 
